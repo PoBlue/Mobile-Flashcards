@@ -25,6 +25,10 @@ class DeckListView extends Component {
 
     onClickItem(deck) {
         console.log(deck)
+        this.props.navigation.navigate(
+            'Deck',
+            {deck}
+        )
     }
 
     initData() {

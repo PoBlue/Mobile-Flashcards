@@ -4,24 +4,24 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import decks from './reducers/reducer.js'
 import { Tabs } from './components/tab.js'
+import { Stack } from './components/navigatorView.js'
 import { Constants } from 'expo'
 import { purple } from './utils/colors.js'
 
 function QuizBar({ backgroundColor }) {
   return (
-    <View height={Constants.statusBarHeight}>
       <StatusBar translucent backgroundColor={backgroundColor} barStytle="light-content"/>
-    </View>
   )
 }
 
+const store = createStore(decks)
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={createStore(decks)}>
+      <Provider store={store}>
         <View style={styles.container}>
           <QuizBar backgroundColor={purple}/>
-          <Tabs/>
+          <Stack/>
         </View>
       </Provider>
     );

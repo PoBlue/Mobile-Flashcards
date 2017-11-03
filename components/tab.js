@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { TabNavigator } from 'react-navigation';
 import DeckListView from './deckListView'
-import NewDeckView from './newDeck'
+import NewDeckView from './newDeckView'
 
 export const Tabs = TabNavigator({
   Decks: {
