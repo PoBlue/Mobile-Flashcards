@@ -1,19 +1,10 @@
 import React, { Component } from 'react'
+import { TabNavigator } from 'react-navigation';
 import { View, Text, Button, TouchableOpacity, FlatList, StyleSheet} from 'react-native'
-import {
-    getDecksAction,
-    createDeckAction,
-    createQuizAction
-} from '../actions/deckAction.js'
+import { getDecksAction, createDeckAction, createQuizAction } from '../actions/deckAction.js'
 import { connect } from 'react-redux'
-import {
-    createDeck,
-    createQuiz
-} from '../api/index.js'
-import {
-    fetchDecks, 
-    submitDeck
-} from '../api/api.js'
+import { createDeck, createQuiz } from '../api/index.js'
+import { fetchDecks, submitDeck } from '../api/api.js'
 
 function DeckListItemView({ deck, onClickItem }) {
     return (
@@ -54,10 +45,6 @@ class DeckListView extends Component {
         console.log(decks)
         return (
             <View>
-                <Text>hello,world</Text>
-                <Button title="init data" onPress={() => this.initData()}/>
-                <Button title="init data" onPress={() => this.initData()}/>
-                <Button title="init data" onPress={() => this.initData()}/>
                 <FlatList
                     data={deckKeys}
                     renderItem={({item}) => (
