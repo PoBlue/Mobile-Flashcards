@@ -23,3 +23,13 @@ export function removeDeck (deck) {
       AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(data))
     })
 }
+
+export function addQuestion(question, deckTitle) {
+  const key = deckTitle
+  return AsyncStorage.getItem(DECK_STORAGE_KEY)
+    .then((results) => {
+      const data = JSON.parse(results)
+      data[key].questions = data[key].questions.concat(question)
+      AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(data))
+    })
+}

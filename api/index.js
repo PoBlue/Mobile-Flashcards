@@ -5,9 +5,10 @@ export function createDeck(title) {
     }
 }
 
-export function createQuiz(question, answer) {
+export function createQuiz(question, answer, isCorrect) {
     return {
         question,
-        answer
+        answer,
+        isCorrect,
     }
 }

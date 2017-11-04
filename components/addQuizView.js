@@ -1,15 +1,32 @@
 import React, {Component} from 'react'
 import { KeyboardAvoidingView, Switch, Text, Button, TouchableOpacity, TextInput, StyleSheet} from 'react-native'
+import { getDecksAction, createDeckAction, createQuizAction } from '../actions/deckAction.js'
+import { createDeck, createQuiz } from '../api/index.js'
+import { addQuestion } from '../api/api.js'
+import { connect } from 'react-redux'
 
-export default class AddQuizView extends Component {
+class AddQuizView extends Component {
     state = {
         question: "",
         answer: "",
         isCorrect: false,
+        errorMsg: "",
     }
 
-    submit(e) {
-        console.log(e)
+    submit() {
+        const { dispatch } = this.props
+        const {question, answer, isCorrect} = this.state
+        const deck = this.props.navigation.state.params.deck
+        if (!question || !answer) {
+            this.setState({
+                errorMsg: "Plese input quesiton and answer"
+            })
+        } else {
+            const newQuesion = createQuiz(question, answer, isCorrect)
+            dispatch(createQuizAction(newQuesion, deck.title))
+            addQuestion(newQuesion, deck.title)
+            this.props.navigation.goBack()
+        }
     }
 
     handleQuestionChange(text) {
@@ -32,10 +49,11 @@ export default class AddQuizView extends Component {
 
     render() {
         const {isCorrect} = this.state
+        const deck = this.props.navigation.state.params.deck
 
         return (
             <KeyboardAvoidingView behavior="padding">
-                <Text>What is the title of your new deck?</Text>
+                <Text>Add Card To {deck.title}</Text>
                 <TextInput 
                     placeholder={"Input the question"}
                     value={this.state.question}
@@ -52,8 +70,13 @@ export default class AddQuizView extends Component {
                     value={this.state.answer}
                     onChangeText={(text) => this.handleAnswerChange(text)}
                 />
+                { this.state.errorMsg == true && 
+                    <Text>{this.state.errorMsg}</Text>
+                }
                 <Button title="Submit" onPress={() => this.submit()}/>
             </KeyboardAvoidingView>
         )
     }
 }
+
+export default connect()(AddQuizView)
