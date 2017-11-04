@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
-import { KeyboardAvoidingView, Text, Button, TouchableOpacity, TextInput, StyleSheet} from 'react-native'
+import { KeyboardAvoidingView, Switch, Text, Button, TouchableOpacity, TextInput, StyleSheet} from 'react-native'
 
 export default class AddQuizView extends Component {
     state = {
         question: "",
-        answer: ""
+        answer: "",
+        isCorrect: false,
     }
 
     submit(e) {
@@ -23,7 +24,15 @@ export default class AddQuizView extends Component {
         })
     }
 
+    handleCorrect() {
+        this.setState((state) => ({
+            isCorrect: !state.isCorrect
+        }))
+    }
+
     render() {
+        const {isCorrect} = this.state
+
         return (
             <KeyboardAvoidingView behavior="padding">
                 <Text>What is the title of your new deck?</Text>
@@ -31,6 +40,12 @@ export default class AddQuizView extends Component {
                     placeholder={"Input the question"}
                     value={this.state.question}
                     onChangeText={(text) => this.handleQuestionChange(text)}
+                />
+                <Text>Is correct? </Text>
+                <Text>{isCorrect? "true":"false"}</Text>
+                <Switch
+                    value={isCorrect}
+                    onValueChange={() => this.handleCorrect()}
                 />
                 <TextInput 
                     placeholder={"Input the answer to the question"}

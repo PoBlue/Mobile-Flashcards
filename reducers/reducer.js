@@ -12,6 +12,7 @@ import {
       {
         question,
         answer,
+        isCorrect,
       }
     ]
   },
