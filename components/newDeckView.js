@@ -9,6 +9,7 @@ class NewDeckView extends Component {
     state = {
         input: "",
         errorMsg: "",
+        sucessfulMsg:"",
     }
 
     componentDidMount () {
@@ -36,6 +37,11 @@ class NewDeckView extends Component {
                 const newDeck = createDeck(input)
                 dispatch(createDeckAction(newDeck))
                 submitDeck(newDeck)
+                this.setState({
+                    input: "",
+                    errorMsg: "",
+                    sucessfulMsg: "Created sucessful",
+                })
             } else {
                 this.setState({
                     errorMsg: "The deck have been created, plese use different name"
@@ -60,6 +66,7 @@ class NewDeckView extends Component {
                     onChangeText={(text) => this.handleTextChange(text)}
                 />
                 <Text>{this.state.errorMsg}</Text>
+                <Text>{this.state.sucessfulMsg}</Text>
                 <Button title="Submit" onPress={() => this.submit()}/>
             </KeyboardAvoidingView>
         )
