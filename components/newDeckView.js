@@ -12,7 +12,6 @@ class NewDeckView extends Component {
     }
 
     handleTextChange(input) {
-        console.log(input)
         this.setState({
             input
         })
@@ -23,10 +22,11 @@ class NewDeckView extends Component {
             <KeyboardAvoidingView behavior="padding">
                 <Text>What is the title of your new deck?</Text>
                 <TextInput 
+                    placeholder={"Input deck name"}
                     value={this.state.input}
                     onChangeText={(text) => this.handleTextChange(text)}
                 />
-                <Button title="Submit" onPress={(e) => this.submit(e)}/>
+                <Button title="Submit" onPress={() => this.submit()}/>
             </KeyboardAvoidingView>
         )
     }
