@@ -70,9 +70,7 @@ class AddQuizView extends Component {
                     value={this.state.answer}
                     onChangeText={(text) => this.handleAnswerChange(text)}
                 />
-                { this.state.errorMsg == true && 
-                    <Text>{this.state.errorMsg}</Text>
-                }
+                <Text>{this.state.errorMsg}</Text>
                 <Button title="Submit" onPress={() => this.submit()}/>
             </KeyboardAvoidingView>
         )
