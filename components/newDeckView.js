@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
     },
     inputFiled: {
         fontSize: 30,
+        height: 60,
         marginTop: 32,
         marginBottom: 32,
     },

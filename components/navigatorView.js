@@ -4,6 +4,7 @@ import DeckView from './deckView.js'
 import DeckListView from './deckListView.js'
 import AnswerView from './answerView.js'
 import AddQuizView from './addQuizView.js'
+import { Platform, StatusBar } from 'react-native';
 
 export const Stack = StackNavigator({
   Quiz: {
@@ -58,4 +59,8 @@ export const Stack = StackNavigator({
       headerTintColor: 'white',
     }),
   }
-})
+}, {
+    cardStyle: {
+      paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+    }
+  })

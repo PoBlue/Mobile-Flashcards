@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     },
     inputFiled: {
         fontSize: 22,
+        height: 50,
         marginTop: 16,
         marginBottom: 16,
     },
