@@ -42,12 +42,20 @@ export const Stack = StackNavigator({
       headerTitleStyle: {
         color: 'white',
       },
+      headerTintColor: 'white',
     }),
   },
   "Add Quiz": {
     screen: AddQuizView,
     navigationOptions: ({navigation}) => ({
       title: `Add Quiz`,
+      headerStyle: {
+        backgroundColor: 'black',
+      },
+      headerTitleStyle: {
+        color: 'white',
+      },
+      headerTintColor: 'white',
     }),
   }
 })
