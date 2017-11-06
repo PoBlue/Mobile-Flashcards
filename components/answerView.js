@@ -71,7 +71,7 @@ class AnswerView extends Component  {
                 <Text style={styles.progress}>{position + 1} / {questions.length}</Text>
                 <View style={styles.description}>
                     <Text style={styles.question}>{currentQuestion}</Text>
-                    <Button color="red" title="Answer" onPress={() => this.viewAnswer(true)} />
+                    <Button color="red" title="View the Answer" onPress={() => this.viewAnswer(true)} />
                 </View>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.correctButton} onPress={() => this.checkCorrect(true)}>
