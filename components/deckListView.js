@@ -9,9 +9,9 @@ import { fetchDecks, submitDeck } from '../api/api.js'
 function DeckListItemView({ deck, onClickItem }) {
     return (
         <TouchableOpacity onPress={() => onClickItem(deck)}>
-            <View style={[styles.container, styles.deckListItem]}>
-                <Text>{deck.title}</Text>
-                <Text>{deck.questions.length}</Text>
+            <View style={[styles.deckListItem]}>
+                <Text style={styles.deckName}>{deck.title}</Text>
+                <Text style={styles.cardCounter}>{deck.questions.length} cards</Text>
             </View>
         </TouchableOpacity>
     )
@@ -24,23 +24,14 @@ class DeckListView extends Component {
     }
 
     onClickItem(deck) {
-        console.log(deck)
         this.props.navigation.navigate(
             'Deck',
             {deck}
         )
     }
 
-    initData() {
-        const { dispatch } = this.props
-        const { decks } = this.props
-        const newDeck = createDeck("boostrap")
-        dispatch(createDeckAction(newDeck))
-        submitDeck(newDeck)
-        const newQuesion = createQuiz("test","hello")
-        dispatch(createQuizAction(newQuesion, newDeck.title))
-        // const newQuesion2 = createQuiz("test2","2hello")
-        // dispatch(createQuizAction(newQuesion2, newDeck.title))
+    _separator = () => {
+        return <View style={{height:0.5,backgroundColor:'black'}}/>;
     }
 
     render() {
@@ -48,8 +39,10 @@ class DeckListView extends Component {
         const deckKeys = Object.keys(decks)
         console.log(decks)
         return (
-            <View>
+            <View style={[styles.container]}>
                 <FlatList
+                    ItemSeparatorComponent={this._separator}
+                    style={[styles.container]}
                     data={deckKeys}
                     renderItem={({item}) => (
                         <DeckListItemView deck={decks[item]} onClickItem={this.onClickItem.bind(this)}/>
@@ -68,11 +61,24 @@ function mapStateToProps(decks) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  deckListItem: {
-  }
+    container: {
+        flex: 1,
+    },
+    deckListItem: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 30,
+    },
+    cardCounter: {
+        fontSize: 15,
+        color: 'gray',
+        paddingTop: 8,
+    },
+    deckName: {
+        fontSize: 20,
+        color: 'black',
+        fontWeight: 'bold'
+    }
 });
 
 export default connect(mapStateToProps)(DeckListView)

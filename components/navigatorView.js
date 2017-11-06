@@ -7,15 +7,47 @@ import AddQuizView from './addQuizView.js'
 
 export const Stack = StackNavigator({
   Quiz: {
-    screen: Tabs
+    screen: Tabs,
+    navigationOptions: ({navigation}) => ({
+      title: `Quiz`,
+      headerStyle: {
+        backgroundColor: 'black',
+      },
+      headerTitleStyle: {
+        color: 'white',
+      },
+      headerTintColor: 'white',
+    }),
   },
   Deck: {
-    screen: DeckView
+    screen: DeckView,
+    navigationOptions: ({navigation}) => ({
+      title: `Deck`,
+      headerStyle: {
+        backgroundColor: 'black',
+      },
+      headerTitleStyle: {
+        color: 'white',
+      },
+      headerTintColor: 'white',
+    }),
   },
   Answer: {
-    screen: AnswerView
+    screen: AnswerView,
+    navigationOptions: ({navigation}) => ({
+      title: `${navigation.state.params.deck.title} Deck`,
+      headerStyle: {
+        backgroundColor: 'black',
+      },
+      headerTitleStyle: {
+        color: 'white',
+      },
+    }),
   },
   "Add Quiz": {
-    screen: AddQuizView
+    screen: AddQuizView,
+    navigationOptions: ({navigation}) => ({
+      title: `Add Quiz`,
+    }),
   }
 })

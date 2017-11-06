@@ -30,4 +30,25 @@ function mapStateToPorps(decks) {
     }
 }
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    deckListItem: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 30,
+    },
+    cardCounter: {
+        fontSize: 15,
+        color: 'gray',
+        paddingTop: 8,
+    },
+    deckName: {
+        fontSize: 20,
+        color: 'black',
+        fontWeight: 'bold'
+    }
+});
+
 export default connect(mapStateToPorps)(DeckView)

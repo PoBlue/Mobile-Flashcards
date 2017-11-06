@@ -6,11 +6,11 @@ import decks from './reducers/reducer.js'
 import { Tabs } from './components/tab.js'
 import { Stack } from './components/navigatorView.js'
 import { Constants } from 'expo'
-import { purple } from './utils/colors.js'
+import { purple, white } from './utils/colors.js'
 
 function QuizBar({ backgroundColor }) {
   return (
-      <StatusBar translucent backgroundColor={backgroundColor} barStytle="light-content"/>
+      <StatusBar backgroundColor={backgroundColor} barStytle="light-content"/>
   )
 }
 
