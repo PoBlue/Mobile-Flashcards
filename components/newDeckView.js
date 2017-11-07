@@ -37,6 +37,12 @@ class NewDeckView extends Component {
                 const newDeck = createDeck(input)
                 dispatch(createDeckAction(newDeck))
                 submitDeck(newDeck)
+
+                this.props.navigation.navigate(
+                    'Deck',
+                    {deck: newDeck}
+                )
+
                 this.setState({
                     input: "",
                     errorMsg: "",
