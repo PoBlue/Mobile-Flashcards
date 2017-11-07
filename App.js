@@ -7,6 +7,7 @@ import { Tabs } from './components/tab.js'
 import { Stack } from './components/navigatorView.js'
 import { Constants } from 'expo'
 import { purple, white } from './utils/colors.js'
+import { setLocalNotification } from './utils/helper.js'
 
 function QuizBar({ backgroundColor }) {
   return (

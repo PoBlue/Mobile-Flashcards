@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { View, Text, Button, TouchableOpacity, FlatList, StyleSheet} from 'react-native'
+import { setLocalNotification, clearLocalNotification } from '../utils/helper.js'
 
 class AnswerView extends Component  {
     state = {
@@ -32,6 +33,8 @@ class AnswerView extends Component  {
     }
 
     getResult() {
+        clearLocalNotification().then(setLocalNotification)
+
         const {questions} = this.props.navigation.state.params.deck
         let {isCompleted, answers, position} = this.state
         const totalLength = questions.length
