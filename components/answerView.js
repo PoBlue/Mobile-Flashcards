@@ -26,6 +26,15 @@ class AnswerView extends Component  {
         }))
     }
 
+    reset() {
+        this.setState((state) => ({
+            answers: [],
+            position: 0,
+            isCompleted: false,
+            inAnserView: false,
+        }))
+    }
+
     viewAnswer(toAnswer) {
         this.setState({
             inAnserView: toAnswer,
@@ -55,6 +64,12 @@ class AnswerView extends Component  {
             return (
                 <View style={styles.top}>
                     <Text style={styles.question}>{this.getResult()}</Text>
+                    <TouchableOpacity style={styles.blackBorderButton} onPress={() => this.reset()}>
+                        <Text style={styles.doAgainText}>Do it again</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.blackButton} onPress={() => this.props.navigation.goBack()}>
+                        <Text style={styles.backText}>Go Back</Text>
+                    </TouchableOpacity>
                 </View>
             )
         }
@@ -140,6 +155,35 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     incorrectText: {
+        fontSize: 18,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 25,
+        paddingRight: 25,
+        color: 'white',
+    },
+    blackBorderButton: {
+        backgroundColor: 'white',
+        borderWidth: 0.5,
+        borderColor: 'black',
+        borderRadius: 10,
+        padding: 5,
+        margin: 10,
+    },
+    blackButton: {
+        backgroundColor: 'black',
+        borderRadius: 10,
+        margin: 10,
+        padding: 5,
+    },
+    doAgainText: {
+        fontSize: 18,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 25,
+        paddingRight: 25,
+    },
+    backText: {
         fontSize: 18,
         paddingTop: 10,
         paddingBottom: 10,
