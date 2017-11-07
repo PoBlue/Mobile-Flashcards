@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { TabNavigator } from 'react-navigation';
-import DeckListView from './deckListView'
-import NewDeckView from './newDeckView'
+import DeckListView from './DeckListView'
+import NewDeckView from './NewDeckView'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 
 export const Tabs = TabNavigator({

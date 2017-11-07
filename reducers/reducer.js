@@ -2,7 +2,7 @@ import {
     CREATE_DECK, 
     GET_ALL_DECKS,
     CREATE_QUIZ
-} from '../actions/deckAction.js'
+} from '../actions/DeckAction.js'
 
 /*
 {

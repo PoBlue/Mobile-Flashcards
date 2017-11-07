@@ -1,9 +1,9 @@
 import { StackNavigator } from 'react-navigation'
-import {Tabs} from './tab.js'
-import DeckView from './deckView.js'
-import DeckListView from './deckListView.js'
-import AnswerView from './answerView.js'
-import AddQuizView from './addQuizView.js'
+import {Tabs} from './TabsNav.js'
+import DeckView from './DeckView.js'
+import DeckListView from './DeckListView.js'
+import AnswerView from './AnswerView.js'
+import AddQuizView from './AddQuizView.js'
 import { Platform, StatusBar } from 'react-native';
 
 export const Stack = StackNavigator({

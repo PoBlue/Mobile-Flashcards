@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { KeyboardAvoidingView, Text, Button, TouchableOpacity, TextInput, StyleSheet} from 'react-native'
 import { createDeck, createQuiz } from '../api/index.js'
-import { getDecksAction, createDeckAction, createQuizAction } from '../actions/deckAction.js'
+import { getDecksAction, createDeckAction, createQuizAction } from '../actions/DeckAction.js'
 import { fetchDecks, submitDeck } from '../api/api.js'
 
 class NewDeckView extends Component {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {View, KeyboardAvoidingView, Switch, Text, Button, TouchableOpacity, TextInput, StyleSheet} from 'react-native'
-import { getDecksAction, createDeckAction, createQuizAction } from '../actions/deckAction.js'
+import { getDecksAction, createDeckAction, createQuizAction } from '../actions/DeckAction.js'
 import { createDeck, createQuiz } from '../api/index.js'
 import { addQuestion } from '../api/api.js'
 import { connect } from 'react-redux'

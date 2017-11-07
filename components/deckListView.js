@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { TabNavigator } from 'react-navigation';
 import { View, Text, Button, TouchableOpacity, FlatList, StyleSheet} from 'react-native'
 import { connect } from 'react-redux'
-import { getDecksAction, createDeckAction, createQuizAction } from '../actions/deckAction.js'
+import { getDecksAction, createDeckAction, createQuizAction } from '../actions/DeckAction.js'
 import { createDeck, createQuiz } from '../api/index.js'
 import { fetchDecks, submitDeck } from '../api/api.js'
 
